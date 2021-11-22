@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useLayoutEffect} from 'react'
+
 
 function App() {
+  useLayoutEffect(()=> {
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+
+    context.fillStyle = "green";
+    context.fillRect(10,10,150,100);
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <canvas id="canvas" width={window.innerWidth} height={window.innerHeight}>
+      Canvas
+    </canvas>
+  )
 }
 
-export default App;
+export default App
